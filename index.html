@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="HedgeAgents">
+  <meta name="keywords" content="Large Language Models; Multi-agent System; Quantitative Finance; Hedging Strategies;Automated Trading">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HedgeAgents</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script> -->
+  <!-- <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+/Users/panlu/Library/Mobile Documents/com~apple~CloudDocs/ImageMath/visual-mathqa-server/data_final/images
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script> -->
+
+  <link rel="icon" href="./static/images/1.png">
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="stylesheet" href="./static/css/leaderboard.css">
+
+  <!-- <link href="https://unpkg.com/tabulator-tables@5.5.2/dist/css/tabulator_bulma.min.css" rel="stylesheet">
+  <script type="text/javascript" src="https://unpkg.com/tabulator-tables@5.5.2/dist/js/tabulator.min.js"></script> -->
+  <script type="text/javascript" src="static/js/sort-table.js" defer></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/explorer-index.js"></script>
+  <script src="./static/js/question_card.js"></script>
+
+  <script src="./static/js/leaderboard_testmini.js"></script>  
+  <script src="./data/results/output_folders.js" defer></script>
+  <script src="./data/results/model_scores.js" defer></script>
+
+  <script src="./visualizer/data/data_public.js" defer></script>
+</head>
+<body>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">HedgeAgents:</h1>
+          <h2 class="title is-2 publication-title" id="1"> A Balanced-aware Multi-agent Financial Trading System</h2>
+
+          <br>
+
+
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <span class="link-block">
+                <a href="https://hedgeagents.github.io/#1" target="_blank"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+
+              <span class="link-block">
+                <a href="https://hedgeagents.github.io/#1" target="_blank"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+
+              <span class="link-block">
+                <a href="https://hedgeagents.github.io/#1" target="_blank"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fa fa-database"></i>
+                  </span>
+                  <span>Dataset</span>
+                  </a>
+              </span>
+
+              <span class="link-block">
+                <a href="https://hedgeagents.github.io/#leaderboard"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <p style="font-size:18px">🏆</p>
+                  </span>
+                  <span>Leaderboard</span>
+                </a>
+              </span>
+
+              <!-- Visualization Link. -->
+              <span class="link-block">
+                <a href="https://hedgeagents.github.io/#visualization"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <p style="font-size:18px">🔮</p>
+                  </span>
+                  <span>Visualization</span>
+                </a>
+              </span>
+
+              <script>
+                  window.addEventListener('load', function() {
+                    const urls = [
+                      'https://bb0eec8976f38a480c.gradio.live',
+                      'https://94c50413658b59829f.gradio.live',
+                      'https://16440e488436f49d99.gradio.live',
+                      'https://02edd560d60615d755.gradio.live',
+                    ];
+                    const randomIndex = Math.floor(Math.random() * urls.length);
+                    const randomURL = urls[randomIndex];
+                    document.getElementById('randomLink').href = randomURL;
+                  });
+                </script>
+
+<!--               <span class="link-block">
+                <a id="randomLink" href="#" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fa fa-play"></i>
+                  </span>
+                  <span>Demo</span>
+                </a>
+              </span> -->
+              <!-- Leaderboard Link. -->
+
+              <span class="link-block">
+                <a href="https://hedgeagents.github.io/#agent" target="_blank"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <p style="font-size:18px">🤖</p>
+                  </span>
+                  <span>Agent</span>
+                  </a>
+              </span>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- <section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="content has-text-centered">
+      <img src="static/images/tease_scores_gpt4v.png" alt="geometric reasoning" width="99%"/>
+      <p> Accuracy scores of one leading LLM (i.e., PoT GPT-4), four primary LMMs, random chance, and human performance our proposed 
+      <img src="static/images/mathvista.png" style="width:1.0em;vertical-align: middle" alt="Logo"/>
+      <span class="mathvista">MathVista</span>
+      across mathematical reasoning and visual context types. PoT refers to program-of-thought prompting, and PoT GPT-4 is a textual LLM augmented with the caption and OCR text. GPT-4V is manually evaluated via the playground chatbot.
+      </p>
+    </div>
+  </div>
+</section> -->
+<section class="section">
+  <div class="container" style="margin-bottom: 2vh;">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+           <p>
+         As automated trading gains traction in the financial market, algorithmic investment strategies are increasingly prominent. While Large Language Models (LLMs) and Agent-based models exhibit promising potential in real-time market analysis and trading decisions, they still experience a significant -20% loss when confronted with rapid declines or frequent fluctuations, impeding their practical application. Hence, there is an imperative to explore a more robust and resilient framework. This paper introduces an innovative multi-agent system, <b>HedgeAgents</b>, aimed at bolstering system robustness via "hedging" strategies. In this well-balanced system, an array of hedging agents has been tailored, where HedgeAgents consist of a central fund manager and multiple hedging experts specializing in various financial asset classes. These agents leverage LLMs' cognitive capabilities to make decisions and coordinate through three types of conferences. Benefiting from the powerful understanding of LLMs, our HedgeAgents have showcased remarkable stability and profitability across various market conditions. Moreover, we have observed with delight that HedgeAgents can even formulate investment experience comparable to those of human experts.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+</div>
+</section>
+
+<section class="section">
+  <div class="container" style="margin-top: -150px; margin-bottom: -100px;">
+    <div class="columns is-centered m-6">
+      <div class="column is-full has-text-centered content">
+        <div id="results-carousel" class="carousel results-carousel">
+          <div class="box m-5">
+            <div class="content has-text-centered">
+              <img src="static/images/extremelymarket.png" alt="geometric reasoning" width="84%"/>
+              <p> Performance of state-of-the-art models on Total Return (TR), Sharpe Ratio (SR) and Cumulative Returns (CR) in real-world scenarios, with the majority exhibiting negative scores.
+              </p>
+            </div>
+          </div>
+          <div class="box m-5">
+            <div class="content has-text-centered">
+              <img src="static/images/F2PRUDEX.png" alt="geometric reasoning" width="84%"/>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</section>
+
+
+<section class="section">
+  <div class="container" style="margin-bottom: 2vh;">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Overall Framework</h2>
+        <div class="content has-text-justified">
+           <p>
+             The HedgeAgents framework simulates the architecture of a real hedge fund company, aiming to optimize risk hedging for multi-asset investment portfolios.The framework comprises four agents: Bitcoin Analyst Dave, Dow Jones Analyst Bob, Forex Analyst Emily, and Hedge Fund Manager Otto. Each of the three analysts is in charge of managing a specific asset. Otto, as their supervisor, is responsible for the overall risk management of the investment portfolio and the distribution of the asset investment budget.
+To achieve effective collaboration, we have established three types of multi-agent coordination meetings: Budget Allocation Conference, Experience Sharing Conference and Extreme Market Conference. These conferences serve to facilitate budget allocation, experience summary, and swift emergency actions.
+           </p>
+        </div>
+        <img id="model" width="100%" src="static/images/frameworkhtml.png">
+        <div class="content has-text-centered">
+          <p style="font-family:Times New Roman">Our HedgeAgents comprise 3 hedging agents and 1 manager. Each agent is equipped with 23 tools and possesses 3 types of memory to execute 8 actions. Furthermore, collaboration among multiple agents can be categorized into three types of conferences: budget allocation, experience sharing, and extreme market conference.</p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+</div>
+</section>
+
+<section class="section">
+  <div class="container">
+
+    <div class="columns is-centered">
+      <div class="column is-full has-text-centered content">
+
+        <div class="content">
+
+
+        <h2 class="title is-3" id="leaderboard">Leaderboard on Multi-Asset Financial Dataset</h2>
+        <div class="content">
+          <p class="mt-3">Leaderboard for evaluating various methods on 9 metrics in the <b>Multi-Asset Financial Dataset</b>.
+
+          </p>
+
+          <table class="js-sort-table" id="results">
+            <tr>
+                <td class="js-sort-number"><strong>#</strong></td>
+                <td class="js-sort-number"><strong>Models</strong></td>
+                <td class="js-sort-number"><strong>Categories</strong></td>
+                <td class="js-sort-number"><strong>Source</strong></td>
+                <td class="js-sort-number"><strong>ARR(%)</strong></td>
+                <td class="js-sort-number"><strong>TR(%)</strong></td>
+                <td class="js-sort-number"><strong>SR</strong></td>
+                <td class="js-sort-number"><strong>CR</strong></td>
+                <td class="js-sort-number"><strong>SoR</strong></td>
+                <td class="js-sort-number"><strong>MDD(%)</strong></td>
+                <td class="js-sort-number"><strong>Vol(%)</strong></td>
+                <td class="js-sort-number"><strong>ENT</strong></td>
+                <td class="js-sort-number"><strong>ENB</strong></td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td><b class="best-score-text">HedgeAgents 🥇</b></td>
+              <td>LLM-based 👑️</td>
+              <td><a href="https://hedgeagents.github.io/" class="ext-link" style="font-size: 16px;">Link</a></td>
+              <td><b class="best-score-text">71.60</b></td>
+              <td><b class="best-score-text">405.34</b></td>
+              <td><b class="best-score-text">2.41</b></td>
+              <td><b class="best-score-text">11.02</b></td>
+              <td><b class="best-score-text">58.00</b></td>
+              <td><b class="best-score-text">14.21</b></td>
+              <td>1.30</td>
+              <td><b class="best-score-text">3.13</b></td>
+              <td><b class="best-score-text">1.53</b></td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td><b class="best-score-text">FinAgent 🥈</b></td>
+              <td>LLM-based 👑️</td>
+              <td><a href="https://arxiv.org/abs/2402.18485" class="ext-link" style="font-size: 16px;">Link</a></td>
+
+              <td><b>53.54</b></td>
+              <td><b>261.98</b></td>
+              <td>1.80</td>
+              <td>4.52</td>
+              <td>39.12</td>
+              <td>28.24</td>
+              <td>1.42</td>
+              <td>2.85</td>
+              <td><b>1.41</b></td>
+
+
+            </tr>
+            <tr>
+              <td>3</td>
+              <td><b class="best-score-text">FinMem 🥉</b></td>
+              <td>LLM-based 👑️</td>
+              <td><a href="https://arxiv.org/abs/2311.13743" class="ext-link" style="font-size: 16px;">Link</a></td>
+
+              <td>47.67</td>
+              <td>221.99</td>
+              <td>1.20</td>
+              <td>4.02</td>
+              <td>25.42</td>
+              <td>32.39</td>
+              <td>2.16</td>
+              <td>1.99</td>
+              <td>1.25</td>
+
+
+            </tr>
+            <tr>
+              <td>4</td>
+              <td><b class="">AlphaMix+</b></td>
+              <td>RL-Based 🎮</td>
+              <td><a href="https://github.com/TradeMaster-NTU/PRUDEX-Compass" class="ext-link" style="font-size: 16px;">Link</a></td>
+              <td>37.59</td>
+              <td>160.47</td>
+              <td>1.62</td>
+              <td>3.69</td>
+              <td>35.52</td>
+              <td>25.56</td>
+              <td>1.17</td>
+              <td><b>2.93</b></td>
+              <td>1.22</td>
+
+
+            </tr>
+            <tr>
+              <td>5</td>
+              <td><b class="">FinGPT</b></td>
+              <td>LLM-based 👑️</td>
+              <td><a href="https://arxiv.org/abs/2306.06031" class="ext-link" style="font-size: 16px;">Link</a></td>
+              <td>34.22</td>
+              <td>141.82</td>
+              <td><b>1.93</b></td>
+              <td><b>7.64</b></td>
+              <td><b>39.57</b></td>
+              <td><b>17.08</b></td>
+              <td>8.76</td>
+              <td>1.76</td>
+              <td>1.33</td>
+
+
+            </tr>
+            <tr>
+              <td>6</td>
+              <td><b class="">DeepTrader</b></td>
+              <td>RL-based 🎮</td>
+              <td><a href="https://ojs.aaai.org/index.php/AAAI/article/view/16144" class="ext-link" style="font-size: 16px;">Link</a></td>
+              <td>32.78</td>
+              <td>134.11</td>
+              <td>1.41</td>
+              <td>4.06</td>
+              <td>30.43</td>
+              <td>20.95</td>
+              <td>1.21</td>
+              <td>2.02</td>
+              <td>1.30</td>
+
+
+            </tr>
+            <tr>
+              <td>7</td>
+              <td><b class="">SAC</b></td>
+              <td>RL-based 🎮</td>
+              <td><a href="https://arxiv.org/abs/1812.05905" class="ext-link" style="font-size: 16px;">Link</a></td>
+              <td>24.71</td>
+              <td>93.94</td>
+              <td>1.16</td>
+              <td>3.12</td>
+              <td>23.15</td>
+              <td>21.56</td>
+              <td><b>1.16</b></td>
+              <td>1.62</td>
+              <td>1.14</td>
+
+
+            </tr>
+            <tr>
+              <td>8</td>
+              <td><b class="">TSM</b></td>
+              <td>Rule-Based 🛠️</td>
+              <td><a href="https://econpapers.repec.org/article/eeejfinec/v_3a104_3ay_3a2012_3ai_3a2_3ap_3a228-250.htm" class="ext-link" style="font-size: 16px;">Link</a></td>
+              <td>19.13</td>
+              <td>69.09</td>
+              <td>0.78</td>
+              <td>1.53</td>
+              <td>18.21</td>
+              <td>39.14</td>
+              <td>1.55</td>
+              <td>1.10</td>
+              <td>1.09</td>
+
+
+            </tr>
+            <tr>
+              <td>9</td>
+              <td><b class="">MV</b></td>
+              <td>Rule-Based 🛠</td>
+              <td><a href="https://econpapers.repec.org/article/eeejfinec/v_3a100_3ay_3a2011_3ai_3a2_3ap_3a367-381.htm" class="ext-link" style="font-size: 16px;">Link</a></td>
+
+              <td>13.03</td>
+              <td>44.39</td>
+              <td>0.71</td>
+              <td>1.25</td>
+              <td>16.14</td>
+              <td>32.04</td>
+              <td><b class="best-score-text">1.13</b></td>
+              <td>1.09</td>
+              <td>1.02</td>
+
+
+            </tr>
+            <tr>
+              <td>10</td>
+              <td><b class="">ZMR</b></td>
+              <td>Rule-Based 🛠</td>
+              <td><a href="https://arxiv.org/abs/1612.03347" class="ext-link" style="font-size: 16px;">Link</a></td>
+              <td>-7.25</td>
+              <td>-20.21</td>
+              <td>-0.52</td>
+              <td>-3.13</td>
+              <td>-5.15</td>
+              <td>61.52</td>
+              <td>1.98</td>
+              <td>1.55</td>
+              <td>1.11</td>
+
+
+            </tr>
+        </table>
+
+          🚨<b>Evaluation Metrics:</b>
+          <b>ARR:</b> Annual Return Rate,
+          <b>TR:</b> Total Return,
+          <b>SR:</b> Sharpe Ratio,
+          <b>CR:</b> Calmar Ratio,
+          <b>SoR:</b> Sortino Ratio,
+          <b>MDD:</b> Maximum Drawdown,
+          <b>Vol:</b> Volatility,
+          <b>ENT:</b> Entrop,
+          <b>ENB:</b> Effect Number of Bets.
+          <br>
+          <br>
+          <div>
+
+          <p>🚨 The <b>Multi-Asset Financial Dataset</b> comprising Bitcoin, foreign exchange, and the Dow Jones 30 index. These data were sourced from reputable financial databases, namely Yahoo Finance and the Alpaca News API. The dataset spans from January 1, 2015, to December 31, 2023, encompassing daily data points such as open, high, low, and close prices, as well as volume and adjusted close prices. Additionally, daily news updates and 60 standard technical analysis indicators are included for each asset .
+          </p>
+          <br>
+          </div>
+          <img id="model" width="100%" src="static/images/ALLCR.png">
+
+          <p>
+            Cumulative Returns Comparison of our HedgeAgents and all baselines
+          </p>
+
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+            
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered has-text-centered">
+      <!-- <div class="column is-full-width has-text-centered"> -->
+        <div class="column is-four-fifths">
+        <h2 class="title is-3" id="visualization">Visualization</h2>
+        <div class="content has-text-justified">
+          <p>
+           To thoroughly examine our framework's cognitive processes during execution, we have employed visualizations to elucidate both single-agent and multi-agent collaborative processes. Surprisingly, our model demonstrates the capacity to valuable experiences akin to human experts.
+          </p>
+          </div>
+          <div class="content has-text-centered">
+          <img id="model" width="100%" src="static/images/vis1.png">
+
+          <p>
+
+            Detailed and comprehensive workflow visualization of a single agent, taking Bitcoin Analyst Dave as a research example.
+
+          </p>
+          <img id="model" width="100%" src="static/images/vis2.png">
+
+          <p>
+            Detailed visualization of the Budget Allocation Conference.
+          </p>
+          <img id="model" width="100%" src="static/images/vis3.png">
+
+          <p>
+            Detailed visualization of the Experience Sharing Conference.
+          </p>
+          <img id="model" width="100%" src="static/images/vis4.png">
+
+          <p>
+            Detailed visualization of the Extreme Market Conference.
+          </p>
+            <br>
+            <div class="content has-text-justified">
+            <p>
+             The following content is dedicated to the graphical representation of the collective insights and strategies derived from the investment experiences of the three subordinate agents within the HedgeAgents framework.
+          </p>
+              </div>
+
+          </div>
+          <div id="results-carousel" class="carousel results-carousel">
+            <div class="box m-5">
+              <div class="content has-text-centered">
+                <img src="static/images/vis5.png" alt="algebraic reasoning" width="100%"/>
+
+              </div>
+            </div>
+            <div class="box m-5">
+              <div class="content has-text-centered">
+                <img src="static/images/vis6.png" alt="algebraic reasoning" width="100%"/>
+              </div>
+            </div>
+            <div class="box m-5">
+              <div class="content has-text-centered">
+                <img src="static/images/vis7.png" alt="algebraic reasoning" width="100%"/>
+
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+
+
+
+
+    
+    <div class="columns is-centered m-6">
+      <div class="column is-full has-text-centered content">
+        <h2 class="title is-3" id="agent">Agent</h2>
+        <div class="content has-text-justified">
+        <p>The following content provides an exhaustive outline of the HedgeAgents team member profiles, which are integral to our investment decision-making simulation. The profiles are articulated using XML, chosen for its flexibility and robustness in structuring and representing complex data. XML's self-descriptive nature and the ability to define custom tags make it an ideal choice for encoding the intricate details of each agent's profile. It allows for a high degree of customization and scalability, which is essential for simulating a dynamic and complex environment such as a hedge fund's investment strategy.
+        </p>
+        </div>
+        <div id="results-carousel" class="carousel results-carousel">
+          <div class="box m-5">
+            <div class="content has-text-centered">
+              <img src="static/images/agent1.png" alt="arithmetic reasoning" width="60%"/>
+            </div>
+          </div>
+          <div class="box m-5">
+            <div class="content has-text-centered">
+              <img src="static/images/agent2.png" alt="algebraic reasoning" width="60%"/>
+
+            </div>
+          </div>
+          <div class="box m-5">
+            <div class="content has-text-centered">
+              <img src="static/images/agent3.png" alt="geometric reasoning" width="60%"/>
+
+            </div>
+          </div>
+          <div class="box m-5">
+            <div class="content has-text-centered">
+              <img src="static/images/agent4.png" alt="logical reasoning" width="60%"/>
+
+            </div>
+          </div>
+
+
+          
+        </div>
+
+        <br><br>
+
+
+        </div>
+      </div>
+    </div>
+</section>
+
+</body>
+</html>
